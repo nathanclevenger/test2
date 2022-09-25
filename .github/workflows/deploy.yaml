@@ -1,0 +1,16 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: jasongitmail/fast-webhook@v1
+        with:
+          url: https://webhooks.do/cdcb8721-83c4-4dfa-b5dc-3568b7ee43fc
+          json: ${{ toJSON(github) }}
